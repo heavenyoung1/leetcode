@@ -1,0 +1,25 @@
+import requests
+import json
+
+super_dict = dict()
+
+class SuperHero():
+  def __init__(self, name, url):
+    self.name = name
+    self.url = url
+    response = requests.get(self.url) 
+    response_string = response.text
+    response_dict = json.loads(response_string)
+    self.intelligence = response_dict.get('intelligence')
+    self.intelligence = int(self.intelligence)
+    super_dict[self.name] = self.intelligence
+
+def super_force():
+  return (f'{max(super_dict)} - the smartest superhero ever.')
+    
+hulk = SuperHero('Hulk', 'https://superheroapi.com/api/2619421814940190/332/powerstats')
+cap = SuperHero('Captain America', 'https://superheroapi.com/api/2619421814940190/149/powerstats')
+thanos = SuperHero('Thanos', 'https://superheroapi.com/api/2619421814940190/655/powerstats')
+print(super_force())
+
+

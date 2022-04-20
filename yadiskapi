@@ -1,0 +1,23 @@
+import requests
+import os
+import json
+
+class YaUploader:
+    def __init__(self, token: str):
+        self.token = token
+
+    def get_link(self, file_path: str):
+        upload_url = 'https://cloud-api.yandex.net/v1/disk/resources/upload'
+        self.file_path = file_path
+        params = {'path' : file_path}
+        headers = {"Authorization" : self.token}
+        response = requests.get(upload_url, params = params, headers = headers)
+        return response.json()
+
+    def upload(self):
+        href = self.get_link(self.file_path).get('href')
+        response = requests.put(href, data=open(self.file_path, 'rb'))
+
+ya_1 = YaUploader('AQAAAAAtNtPRAADLW8lqihrd1Uu6jZ83xoUNCiM')
+print(ya_1.get_link('supreme.txt'))
+print(ya_1.upload())

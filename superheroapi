@@ -30,6 +30,3 @@ hulk.get()
 cap.get()
 thanos.get()
 print(super_force())
-
-
-

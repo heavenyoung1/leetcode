@@ -7,19 +7,29 @@ class SuperHero():
   def __init__(self, name, url):
     self.name = name
     self.url = url
+  def get(self):
     response = requests.get(self.url) 
     response_string = response.text
     response_dict = json.loads(response_string)
     self.intelligence = response_dict.get('intelligence')
-    self.intelligence = int(self.intelligence)
-    super_dict[self.name] = self.intelligence
+    if type(self.intelligence) != int or type(self.intelligence) == int:
+      self.intelligence = int(self.intelligence)
+      super_dict[self.name] = self.intelligence
+    elif type(self.intelligence) == None:
+      return ('Error, this value is not None')
+    else:
+      return ('Error')
 
 def super_force():
   return (f'{max(super_dict)} - the smartest superhero ever.')
-    
+
 hulk = SuperHero('Hulk', 'https://superheroapi.com/api/2619421814940190/332/powerstats')
 cap = SuperHero('Captain America', 'https://superheroapi.com/api/2619421814940190/149/powerstats')
 thanos = SuperHero('Thanos', 'https://superheroapi.com/api/2619421814940190/655/powerstats')
+hulk.get()
+cap.get()
+thanos.get()
 print(super_force())
+
 
 

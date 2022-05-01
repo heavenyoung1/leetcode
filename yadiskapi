@@ -3,32 +3,35 @@ import os
 import json
 
 class YaUploader:
-    def __init__(self):
-        pass
     def get_token(self):
         with open('selftoken.txt', 'r') as file_token:
             self.token = file_token.read()
-            return (f'Ваш токен получен - {self.token}.')
+            print(f'Ваш токен получен - {self.token}.')
 
     def upload(self, file_path: str):
         upload_link = 'https://cloud-api.yandex.net/v1/disk/resources/upload'
         self.file_path = file_path
         params = {'path' : self.file_path}
         headers = {'Authorization' : self.token}
-        response = requests.get(upload_link, params = params, headers = headers)
+        response = requests.get(upload_link,params = params,headers = headers)
         response_json = response.json()
         return response_json.get('href')
 
     def sent_file(self):
         href = self.upload(self.file_path)
-        response = requests.put(href, data = open(self.file_path, 'rb'))
-        if response.status_code == 201:
-            return 'Документ загружен'
+        if href == None:
+            return ('Error')
+        elif href != str(href):
+            return('ERROR')
+        elif href == str(href):
+            response = requests.put(href, data = open(self.file_path, 'rb'))
+            if response.status_code == 201:
+                return (f'Cоединение успешно - {response.status_code}')
         else:
             return 'Ошибка'
 
 
 uploader = YaUploader()
-print(uploader.get_token())
+uploader.get_token()
 uploader.upload('supreme.txt')
 print(uploader.sent_file())

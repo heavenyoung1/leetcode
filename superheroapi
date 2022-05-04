@@ -4,21 +4,25 @@ import json
 super_dict = dict()
 
 class SuperHero():
+  #super().super_dict() ? я пытался и раньше это сделать, но как? 
   def __init__(self, name, url):
     self.name = name
     self.url = url
+
+    
   def get(self):
     response = requests.get(self.url) 
     response_string = response.text
     response_dict = json.loads(response_string)
     self.intelligence = response_dict.get('intelligence')
-    if type(self.intelligence) != int or type(self.intelligence) == int:
+    if isinstance(self.intelligence, int) or not isinstance(self.intelligence, int):
       self.intelligence = int(self.intelligence)
       super_dict[self.name] = self.intelligence
-    elif type(self.intelligence) == None:
-      return ('Error, this value is not None')
+    elif self.intelligence is None:
+      return 'Error, this value is not None'
     else:
       return ('Error')
+      
 
 def super_force():
   return (f'{max(super_dict)} - the smartest superhero ever.')
@@ -30,3 +34,4 @@ hulk.get()
 cap.get()
 thanos.get()
 print(super_force())
+

@@ -3,26 +3,44 @@ import os
 import json
 
 class YaUploader:
+
+    def init(self):
+        self.token = None
+        
+        
     def get_token(self):
         with open('selftoken.txt', 'r') as file_token:
             self.token = file_token.read()
             print(f'Ваш токен получен - {self.token}.')
 
+
+    def get_header(self):
+        return {
+            'Content-type' : 'application/json',
+            'Authorization' : f'OAuth {self.token}'
+        }
+
+
+    @property
+    def header(self):
+        return self.get_header()
+
+
     def upload(self, file_path: str):
         upload_link = 'https://cloud-api.yandex.net/v1/disk/resources/upload'
         self.file_path = file_path
         params = {'path' : self.file_path}
-        headers = {'Authorization' : self.token}
-        response = requests.get(upload_link,params = params,headers = headers)
+        response = requests.get(upload_link, params=params, headers=self.header)
         response_json = response.json()
         return response_json.get('href')
 
+
     def sent_file(self):
         href = self.upload(self.file_path)
-        if href == None:
-            return ('Error')
+        if href is None:
+            return 'Error, href is string'
         elif href != str(href):
-            return('ERROR')
+            return'Error, href not is string'
         elif href == str(href):
             response = requests.put(href, data = open(self.file_path, 'rb'))
             if response.status_code == 201:
@@ -32,6 +50,7 @@ class YaUploader:
 
 
 uploader = YaUploader()
+uploader.init()
 uploader.get_token()
 uploader.upload('supreme.txt')
 print(uploader.sent_file())

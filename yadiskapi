@@ -3,7 +3,6 @@ import os
 import json
 
 class YaUploader:
-
     def init(self):
         self.token = None
         
@@ -37,7 +36,8 @@ class YaUploader:
 
     def sent_file(self):
         href = self.upload(self.file_path)
-        if href is None:
+        #if href is None: оставлю на всякий случай здесь
+        if isinstance(href, type(None)):
             return 'Error, href is string'
         elif href != str(href):
             return'Error, href not is string'

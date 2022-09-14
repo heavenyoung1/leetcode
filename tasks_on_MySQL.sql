@@ -26,3 +26,10 @@ CREATE TABLE book (
     
     
 SELECT * FROM book
+
+SELECT b.title, g.name_genre, b.price
+from book b
+join genre g 
+on b.genre_id = g.genre_id
+where b.amount > 8
+order by b.price desc

@@ -33,3 +33,9 @@ join genre g
 on b.genre_id = g.genre_id
 where b.amount > 8
 order by b.price desc
+
+-- отработка  cross join на MySQL
+SELECT c.name_city, a.name_author, (DATE_ADD('2020-01-01', INTERVAL FLOOR(RAND() * 365) DAY)) as Дата
+from city c CROSS JOIN author a
+order by c.name_city, Дата desc
+

@@ -39,3 +39,18 @@ SELECT c.name_city, a.name_author, (DATE_ADD('2020-01-01', INTERVAL FLOOR(RAND()
 from city c CROSS JOIN author a
 order by c.name_city, Дата desc
 
+--Запрос на выборку из нескольких страниц
+select  g.name_genre, b.title, a.name_author
+from book b
+inner join genre g on b.genre_id = g.genre_id
+inner join author a on b.author_id = a.author_id
+where g.name_genre like 'роман'
+order by b.title
+
+SELECT a.name_author, SUM(b.amount) AS Количество
+FROM author a
+LEFT JOIN book b
+ON a.author_id = b.author_id 
+GROUP BY a.name_author
+HAVING Количество < 10 OR Количество IS Null
+ORDER BY count(b.amount)

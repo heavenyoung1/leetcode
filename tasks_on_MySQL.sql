@@ -54,3 +54,10 @@ ON a.author_id = b.author_id
 GROUP BY a.name_author
 HAVING Количество < 10 OR Количество IS Null
 ORDER BY count(b.amount)
+
+SELECT a.name_author
+FROM genre g
+JOIN book b ON g.genre_id = b.genre_id
+JOIN author a ON b.author_id = a.author_id
+GROUP BY b.author_id
+HAVING COUNT(DISTINCT(g.genre_id)) = 1

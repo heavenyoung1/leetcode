@@ -29,8 +29,36 @@ def countdown(i):
 
 countdown(100)
     
-#БЕСКОНЕЧНАЯ РЕКУРСИЯ
+#РЕКУРСИЯ нормальная
 
+def countdown(i):
+  print(i)
+  if i <= 0:
+    return
+  else: 
+    countdown(i-1)
+
+countdown(100)
+
+
+#СТЕК ВЫЗОВ (ТОЛЬКО ПОЧЕМУ ОН НЕ РАБОТАЕТ?)
+def greet(name):
+#   print(f'hello {name}!')
+#   greet2(name)
+#   print('getting reary to say bye')
+#   bye()
+
+# вызов с рекурсией, почему не работает?
+def factorial(x):
+  if x == 1:
+    return 1
+  else:
+    return x * factorial(x-1)
+
+
+factorial(1)
+
+# greet('Maggy')
 
 
 

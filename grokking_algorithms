@@ -62,3 +62,16 @@ factorial(1)
 
 
 
+#БЫСТРАЯ СОРТИРОВКА (СЛЕДУЕТ ИЗУЧИТЬ КОД И КАК ОН РАБОТАЕТ)
+
+def quicksort(array):
+  if len(array) < 2:
+    return array #базовый случай, когла массивы с 0 и 1 элементами уже "отсортированы"
+  else:
+    pivot = array[0] #Рекурсивный случай
+    less = [i for i in array[1:] if i <= pivot] #Подмассив всех элементов меньше опорного
+    greater = [i for i in array[1:] if i > pivot] #Подмассив всех элементов больше опорного
+    return quicksort(less) + [pivot] + quicksort(greater)
+
+print(quicksort([10, 5, 2, 3]))
+

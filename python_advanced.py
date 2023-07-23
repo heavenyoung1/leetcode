@@ -81,3 +81,17 @@ print(f"""
 # На вход программе подается строка текста из натуральных чисел. Из неё формируется список чисел. Напишите программу подсчета количества чисел, которые больше предшествующего им в этом списке числа. 
 
 
+count = 0
+i = 0
+s = str(input())
+str_split = s.split()
+int_split = [int(i) for i in str_split]
+while i <= len(int_split) - 2:
+  if int_split[i + 1] > int_split[i]:
+    i += 1
+    count += 1
+  elif int_split[i + 1] <= int_split[i]:
+    i += 1
+print(count)
+
+# 

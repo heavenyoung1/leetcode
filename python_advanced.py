@@ -132,4 +132,11 @@ def ring():
     
 print(ring())
 
+m = {'к-к': 'ничья', 'к-н': 'Тимур', 'к-б': 'Руслан', 'н-н': 'ничья','н-б': 'Тимур', 'н-к': 'Руслан', "б-б": 'ничья','б-к': 'Тимур','б-н': 'Руслан'}
+d1, d2 = str(input()), str(input())
+res = f'{d1[0]}-{d2[0]}'
 
+m_items = m.items()
+for key, value in m_items:
+  if key == res:
+    print(value)

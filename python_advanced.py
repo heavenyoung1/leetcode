@@ -114,3 +114,22 @@ elif len(num) % 2 != 0:
 
 
 print(*num)
+
+from itertools import combinations
+
+def ring():
+  n = int(input())
+  list = [int(input()) for _ in range(n)]
+  #print(list)
+  comp = int(input())
+  
+  for i in combinations(list, 2):
+    if i[0] * i[1] == comp:
+      return "ДА"
+    else:
+      continue
+  return "НЕТ"
+    
+print(ring())
+
+

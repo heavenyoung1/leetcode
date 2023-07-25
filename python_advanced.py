@@ -140,3 +140,19 @@ m_items = m.items()
 for key, value in m_items:
   if key == res:
     print(value)
+
+
+s = str(input())
+c = 0
+max = 0
+s = list(s)
+for i in s:
+  if i == 'О':
+    c = 0
+  elif i == 'Р':
+    c += 1
+    if c > max:
+      max = c
+    
+print(max)
+

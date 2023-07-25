@@ -156,3 +156,12 @@ for i in s:
     
 print(max)
 
+
+abv = [chr(i) for i in range(ord('а'), ord('я') + 1)]
+s = str(input()) + f' запретил букву'
+word = f'{s}'
+for i in abv:
+  if i in s:
+    word = f'{word} {i}'
+    print(word)
+    word = word.replace(i, '').replace('  ', ' ').lstrip(' ').rstrip(' ')

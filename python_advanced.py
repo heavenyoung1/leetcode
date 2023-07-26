@@ -165,3 +165,11 @@ for i in abv:
     word = f'{word} {i}'
     print(word)
     word = word.replace(i, '').replace('  ', ' ').lstrip(' ').rstrip(' ')
+
+
+list1 = [10, 20, [300, 400, [5000, 6000], 500], 30, 40]
+
+x = 7000
+list1[2][2].append(x)
+print(list1)
+

@@ -173,3 +173,11 @@ x = 7000
 list1[2][2].append(x)
 print(list1)
 
+
+n = int(input())
+list = [[i for i in range(1, n + 1)] for j in range(n)]
+
+for i in list:
+  print(i)
+print()
+

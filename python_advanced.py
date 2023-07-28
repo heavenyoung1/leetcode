@@ -181,3 +181,29 @@ for i in list:
   print(i)
 print()
 
+
+
+# ЗАДАЧА НА НАХОЖДЕНИЕ ТРЕУГОЛЬНИКА ПАСКАЛЯ
+
+import math as ma
+
+def pascal(n: int):
+  list = []
+  temp = [1, 1]
+  if n == 0:
+    list.append(1)
+  elif n == 1:
+    list.extend(temp)
+  elif n > 1:
+    list.extend(temp)
+    c = 1
+    for m in range(1, n):
+      c = ma.factorial(n) / (ma.factorial(m) * ma.factorial(n - m))
+      c = int(c)
+      list.insert(1, c)
+
+  return list
+      
+n = int(input())
+print(pascal(n))
+

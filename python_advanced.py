@@ -207,3 +207,16 @@ def pascal(n: int):
 n = int(input())
 print(pascal(n))
 
+
+#РЕШАЕМ МАТРИЦЫ. Напишите программу, которая сначала считывает элементы матрицы один за другим, затем выводит их в виде матрицы.
+
+row, cols = int(input()), int(input()) 
+a = []
+
+a = [[input() for j in range(cols)] for i in range(row)]
+
+for i in range(row):
+  for j in range(cols):
+    print(a[i][j], end = ' ')
+  print()
+

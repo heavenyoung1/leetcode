@@ -220,3 +220,26 @@ for i in range(row):
     print(a[i][j], end = ' ')
   print()
 
+# Напишите программу, которая считывает элементы матрицы один за другим, выводит их в виде матрицы, выводит пустую строку, и снова ту же матрицу, но уже поменяв местами строки со столбцами: первая строка выводится как первый столбец, и так далее.
+
+row, cols = int(input()), int(input()) #ряды, столбцы
+a = []
+
+a = [[input() for j in range(cols)] for i in range(row)]
+
+for i in range(row):
+  for j in range(cols):
+    print(a[i][j], end = ' ')
+  print()
+
+print()
+
+for i in range(cols):
+  for j in range(row):
+    print(a[j][i], end = ' ')
+  print()
+
+#  Напишите программу, которая выводит след заданной квадратной матрицы.
+
+
+

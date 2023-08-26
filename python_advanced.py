@@ -280,5 +280,40 @@ for _ in max:
 
 # Напишите программу, которая выводит максимальный элемент в заштрихованной области квадратной матрицы.
 
+n = int(input())
+matrix = [list(map(int, input().split())) for _ in range(n)]
+max_list = list()
 
+for row_i, row in enumerate(matrix):
+  for col_i, col in enumerate(row):
+    if row_i >= col_i:
+      max_list.append(col)
+
+print(max(max_list))
+
+# Напишите программу, которая выводит максимальный элемент в заштрихованной области квадратной матрицы.
+
+n = int(input())
+matrix = [list(map(int, input().split())) for _ in range(n)]
+max_1, max_2, max_3, max_4 = 0, 0, 0, 0
+
+for i in range(n):
+    for j in range(n):
+      if i < j and i < n - 1 - j:
+          max_1 += matrix[i][j]
+      if i < j and i > n - 1 - j:
+          max_2 += matrix[i][j]
+      if i > j and i > n - 1 - j:
+          max_3 += matrix[i][j]
+      if i > j and i < n - 1 - j:
+          max_4 += matrix[i][j]
+
+print(f'''
+Верхняя четверть: {max_1}
+Правая четверть: {max_2}
+Нижняя четверть: {max_3}
+Левая четверть: {max_4}
+''')
+
+# Создайте матрицу mult размером n×m и заполните её таблицей умножения.
 

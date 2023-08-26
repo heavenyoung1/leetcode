@@ -241,5 +241,21 @@ for i in range(cols):
 
 #  Напишите программу, которая выводит след заданной квадратной матрицы.
 
+n = int(input()) #ряды, столбцы
+count = 0
+a = []
+for i in range(n):
+  temp = [int(i) for i in input().split()]
+  a.append(temp)
+
+for row_i, row in enumerate(a):
+    for col_i, col in enumerate(row):
+      if row_i == col_i:
+        count += col
+      
+print(count)
+
+# Напишите программу, которая выводит количество элементов квадратной матрицы в каждой строке, больших среднего арифметического элементов данной строки.
+
 
 

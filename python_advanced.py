@@ -257,5 +257,28 @@ print(count)
 
 # Напишите программу, которая выводит количество элементов квадратной матрицы в каждой строке, больших среднего арифметического элементов данной строки.
 
+from functools import reduce
+
+n = int(input()) #ряды, столбцы
+max = []
+count = 0
+a = []
+for i in range(n):
+  temp = [int(i) for i in input().split()]
+  a.append(temp)
+
+for row_i, i in enumerate(a):
+  count = 0
+  for col_i, j in enumerate(i):
+    av = reduce(lambda x, y: x + y, i) / n
+    if j > av:
+      count += 1
+  max.append(count)
+
+for _ in max:
+  print(_)
+
+# Напишите программу, которая выводит максимальный элемент в заштрихованной области квадратной матрицы.
+
 
 

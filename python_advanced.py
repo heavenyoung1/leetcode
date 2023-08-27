@@ -332,5 +332,22 @@ for i in range(n):
     print(str(mult[i][j]).ljust(3), end='')
   print()
 
-# Оптимизированное решение
+n = int(input())
+m = int(input())
+el_max = -99999
+matrix = []
 
+for i in range(n):
+  row = []
+  elements = input().split()
+  for element in elements:
+    row.append(int(element))
+    if int(element) > int(el_max):
+      el_max = element
+      x = i
+      y = elements.index(el_max)
+  matrix.append(row)
+
+print(x, y)
+
+# Напишите программу, которая меняет местами столбцы в матрице.

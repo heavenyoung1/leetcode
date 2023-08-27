@@ -317,3 +317,20 @@ print(f'''
 
 # Создайте матрицу mult размером n×m и заполните её таблицей умножения.
 
+n = int(input())
+m = int(input())
+mult = []
+for i in range(n):
+  row = []
+  for j in range(m):
+    temp = i * j
+    row.append(temp)
+  mult.append(row)
+
+for i in range(n):
+  for j in range(m):
+    print(str(mult[i][j]).ljust(3), end='')
+  print()
+
+# Оптимизированное решение
+

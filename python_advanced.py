@@ -350,4 +350,23 @@ for i in range(n):
 
 print(x, y)
 
-# Напишите программу, которая меняет местами столбцы в матрице.
+# Напишите программу, которая меняет местами столбцы в матрице. чит код, используем NumPy для упрощения решения
+
+import numpy as np
+
+n = int(input()) 
+m = int(input())
+matrix = [[int(i) for i in input().split()] for _ in range(n)]
+x, y = input().split()
+x = int(x) 
+y = int(y) 
+
+arr = np.array(matrix)
+arr.T[[x, y]] = arr.T[[y, x]] 
+for i in range(n):
+  for j in range(m):
+    print(arr[i][j], end = ' ')
+  print()
+
+# Напишите программу, которая проверяет симметричность квадратной матрицы относительно главной диагонали.
+

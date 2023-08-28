@@ -370,3 +370,26 @@ for i in range(n):
 
 # Напишите программу, которая проверяет симметричность квадратной матрицы относительно главной диагонали.
 
+n = int(input())
+
+def sim(n): 
+  matrix = []
+  compare_operation = True
+  
+  for _ in range(n):
+      row = [int(i) for i in input().split()]
+      matrix.append(row)
+  
+  for i in range(n):
+    for j in range(n):
+      if matrix[i][j] == matrix[j][i] and i != j:
+        pass
+      elif matrix[i][j] != matrix[j][i] and i != j:
+        compare_operation = False
+
+  result = 'YES' if compare_operation else 'NO'
+  return result
+
+print(sim(n))
+
+# Программа должна вывести матрицу с элементами главной и побочной диагонали, поменявшимися своими местами.

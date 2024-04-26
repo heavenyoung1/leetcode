@@ -12,3 +12,7 @@ async def sum(request: Request):
     num1 = await request.form['number1']
     num2 = await request.form['number2']
     return {'result': int(num1) + int(num2)}
+
+@app.get("/custom")
+async def read_custom_message():
+    return {"message":  "This is a cutom message!"}

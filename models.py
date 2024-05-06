@@ -1,11 +1,10 @@
 from pydantic import BaseModel
 
 class User(BaseModel):
-    id: int
-    name: str = "Пользователь"
+    user: str = "Пользователь"
+    name: str
     age: int
-
-    def check_adult(self):
-        adult = (self.age >= 18)
-        return {"name": self.name, "age":self.age,"adult": adult}
     
+class Feedback(BaseModel):
+    name: str
+    message: str

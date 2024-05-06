@@ -1,34 +1,39 @@
-from fastapi import FastAPI, Request
-from fastapi.responses import FileResponse
-from models import User
+from fastapi import FastAPI
+from models import Feedback, User
+import json
 
 app = FastAPI()
 
-@app.get("/")
-async def root():
-    return FileResponse("index.html")
+fake_users = {
+    1: {"username": "Homer Simpson", "email": "homer@mail.ru"},
+    2: {"username": "Bart Simpson", "email": "bart@mail.ru"},
+}
 
-@app.post("/sum")
-async def sum(request: Request):
-    num1 = await request.form['number1']
-    num2 = await request.form['number2']
-    return {'result': int(num1) + int(num2)}
+reviews = []
+resp_ok = "Feedback received. Thank you, Alice!"
+resp_no = "Feedback is shit.."
 
-@app.get("/custom")
-async def read_custom_message():
-    return {"message":  "This is a cutom message!"}
-
-@app.get("/get_user")
-async def get_user():
-    return my_user
-
-@app.post("/post_user")
-async def adult_user(user: User):
-    return {"name": user.name,
-            "age": user.age,
-            "is_adult": user.age >= 18
-            }
-
-my_user = {"id": 1, "name": "Elon Musk", "age": 45}
+@app.get("/users")
+def read_users(limit: int = 10):
+    return dict(list(fake_users.items())[:limit])
 
 
+@app.get("/users/{user_id}")
+def read_user(user_id: int):
+    if user_id in fake_users:
+        return fake_users[user_id]
+    return{"error": "User not found"}
+
+@app.post("/feedback")
+def send_feed(feed: Feedback):
+    if len(feed.message) > 20:
+        with open("feedback.json", "w", encoding='utf-8') as file:
+            pair = {feed.name : feed.message}
+            json.dump(pair, file)
+        return resp_ok
+    return resp_no
+
+@app.get("feedback/{name}")
+def read_feed(name: str):
+    with open("feedback.json", "r", encoding='utf-8') as file:
+        file.load

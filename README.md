@@ -1,14 +1,17 @@
 # Python Solutions for Leetcode (inspired by [haoel's leetcode](https://github.com/haoel/leetcode))
 
-| #  | Title                                                                                                                     | Basic idea (One line)                                                                    |
-|----|---------------------------------------------------------------------------------------------------------------------------|------------------------------------------------|
-| 1  | [Two Sum](https://github.com/heavenyoung1/leetcode/blob/main/exs/0001-Two-Sum.py)                                         | 1. Hash O(n) and O(n) space.<br>2. Sort and search with two points O(n) and O(1) space.  |
-| 2  | [Add Two Numbers](https://github.com/heavenyoung1/leetcode/blob/main/exs/0002-Add-Two-Numbers.py)                         | Take care of the carry from lower digit.                                                 |
-| 3  | [Longest Substring Without Repeating Characters](https://github.com/heavenyoung1/leetcode/blob/main/exs/0003-Longest-Substring-Without-Repeating-Characters.py)         | Take care of the carry from lower digit.                                                 |
-| 4  | [Median of Two Sorted Arrays](https://github.com/heavenyoung1/leetcode/blob/main/exs/0004-Median-of-Two-Sorted-Arrays.py) | Take care of the carry from lower digit.                                                 |
-| 5  | [Longest Palindromic Substring](https://github.com/heavenyoung1/leetcode/blob/main/exs/0005-Longest-Palindromic-Substring.py)                          | Take care of the carry from lower digit.                                                 |
-| 6  | [Zigzag Conversion](https://leetcode.com/problems/add-two-numbers/)                                                       | Take care of the carry from lower digit.                                                 |
-| 7  | [Reverse Integer](https://leetcode.com/problems/add-two-numbers/)                                                         | Take care of the carry from lower digit.                                                 |
-| 8  | [String to Integer (atoi)](https://leetcode.com/problems/add-two-numbers/)                                                | Take care of the carry from lower digit.                                                 |
-| 9  | [Palindrome Number](https://leetcode.com/problems/add-two-numbers/)                                                       | Take care of the carry from lower digit.                                                 |
-| 10 | [Regular Expression Matching](https://leetcode.com/problems/add-two-numbers/)                                             | Take care of the carry from lower digit.                                                 |
+| #  | Title                                                                                       | Basic idea (One line) |
+|----|---------------------------------------------------------------------------------------------|---------------------|
+| 1  | [Two Sum](https://github.com/heavenyoung1/leetcode/blob/main/exs/0001-Two-Sum.py)|O(n) по времени.     |
+| 9  | [Palindrome Number](https://github.com/heavenyoung1/leetcode/blob/main/exs/0009-Palindrome-Number.py)|O(log n) по времени  |
+| 13 | [Roman To Integer](https://github.com/heavenyoung1/leetcode/blob/main/exs/0013-Roman-To-Integer.py)|                     |
+| 20 | [Valid Parentheses](https://github.com/heavenyoung1/leetcode/blob/main/exs/0020-Valid-Parentheses.py) |                     |
+| 21 | [Merge Two Sorted Lists](https://github.com/heavenyoung1/leetcode/blob/main/exs/0021-Merge-Two-Sorted-Lists.py) |                     |
+| 26 | [Remove Duplicates from Sorted Array](https://github.com/heavenyoung1/leetcode/blob/main/exs/0026-Remove-Duplicates-From-Sorted-Array.py)|                     |
+| 27 | [Remove Element](https://github.com/heavenyoung1/leetcode/blob/main/exs/0027-Remove-Element.py)|                     |
+| 28 | [Find the Index of the First Occurrence in a String](https://github.com/heavenyoung1/leetcode/blob/main/exs/0027-Remove-Element.py)|                     |
+| 58 | [Length of Last Word](https://github.com/heavenyoung1/leetcode/blob/main/exs/0058-Length-Last-Word.py) |                     |
+| 66 | [Plus One](https://github.com/heavenyoung1/leetcode/blob/main/exs/0066-Plus-One.py)|                     |
+| 26 | [](https://leetcode.com/problems/add-two-numbers/) |                     |
+| 26 | [](https://leetcode.com/problems/add-two-numbers/) |                     |
+| 26 | [](https://leetcode.com/problems/add-two-numbers/) |                     |

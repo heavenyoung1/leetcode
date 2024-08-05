@@ -1,11 +1,11 @@
-class Car:
-    def __init__(self, color, mileage):
-        self.color = color
-        self.mileage = mileage
-    def __repr__(self):
-        return '__repr__ для объекта Car'
-    def __str__(self):
-        return '__str__ для объекта Car'
+class Solution:
+    def deleteDuplicates(self, head: ListNode) -> ListNode:
+        current = head
+        while current is not None and current.next is not None:
+            if current.next.val == current.val:
+                current.next = current.next.next
+            else:
+                current = current.next
+        return head
 
-my_car = Car('красный', 37281)
-print(repr(my_car))
+
